@@ -1,0 +1,10 @@
+# Proxy Tray
+
+A Windows tray app that monitors WinINet proxy settings for LAN (not VPN) and enables quick proxy on/off switch.
+
+- A blue/yellow tray icon indicates proxy off/on status, respectively.
+- A mouse hover-over tip shows proxy server info when proxy is on or "Direct" when off.
+- Left click on the tray icon toggles proxy on/off status. Proxy server info must be pre-configured externally.
+- Quit with "Quit" in right-click context menu.
+
+Targets .NET Framework 4.8 that is included in Windows 11.
