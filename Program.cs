@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Management;
 using System.Security.Principal;
@@ -35,15 +36,21 @@ namespace ProxyTray
 
         static void CreateTray()
         {
-            var menuItem = new MenuItem
+            var settingItem = new MenuItem
             {
                 Index = 0,
+                Text = "Proxy Setting"
+            };
+            settingItem.Click += (sender, e) => Process.Start("ms-settings:network-proxy");
+            var menuItem = new MenuItem
+            {
+                Index = 1,
                 Text = "Quit"
             };
             menuItem.Click += (sender, e) => Application.Exit();
             Tray = new NotifyIcon
             {
-                ContextMenu = new ContextMenu(new[] { menuItem }),
+                ContextMenu = new ContextMenu(new[] { settingItem, menuItem }),
                 Visible = true
             };
             Tray.MouseClick += (sender, e) =>
