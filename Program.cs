@@ -59,6 +59,7 @@ namespace ProxyTray
                 if (ProxyServer == None)
                 {
                     MessageBox.Show("'ProxyServer' not configured");
+                    Process.Start("ms-settings:network-proxy");
                     return;
                 }
                 using (var key = Registry.CurrentUser.OpenSubKey(KeyPath, true))
